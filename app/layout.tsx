@@ -3,7 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
-  title: "Zahra & Adwin Wedding Invitation",
+  title: "Adwin & Zahra Wedding Invitation",
   description:
     "We are getting married and would love for you to join us on our special day.",
   generator: "v0.dev",

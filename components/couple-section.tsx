@@ -5,8 +5,17 @@ import { motion } from "framer-motion";
 
 export default function CoupleSection() {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-20 px-6 relative min-h-[800px]">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/red-background-1.png"
+          alt="Background"
+          fill
+          className="object-cover opacity-90"
+          priority
+        />
+      </div>
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -14,7 +23,7 @@ export default function CoupleSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl mb-6 text-[#9e7f66]">
+          <h2 className="luxurious-script text-4xl mb-6 text-[#9e7f66]">
             Our Love Story
           </h2>
           <p className="text-lg max-w-2xl mx-auto">
@@ -24,9 +33,9 @@ export default function CoupleSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Bride */}
+          {/* Groom */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -35,20 +44,20 @@ export default function CoupleSection() {
             <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb]">
               <Image
                 src="/placeholder.svg?height=256&width=256"
-                alt="Lila"
+                alt="Adwin"
                 fill
                 className="object-cover"
               />
             </div>
             <h3 className="font-serif text-3xl mb-2 text-[#9e7f66]">
-              Siti Fatimah Azahra
+              Adwin Nugroho Siswoyo, S.Kom.
             </h3>
             <p className="mb-4">
-              Daughter of Mr. Sidik Murbadianto & Mrs. Indartriwati
+              Son of <br /> Mr. Siswoyo <br /> Mrs. Siti Rukayah
             </p>
             <div className="flex justify-center gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/adwinnsiswoyo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#9e7f66] hover:text-[#8a6e58]"
@@ -73,9 +82,9 @@ export default function CoupleSection() {
             </div>
           </motion.div>
 
-          {/* Groom */}
+          {/* Bride */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -84,15 +93,17 @@ export default function CoupleSection() {
             <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb]">
               <Image
                 src="/placeholder.svg?height=256&width=256"
-                alt="Adwin"
+                alt="Lila"
                 fill
                 className="object-cover"
               />
             </div>
             <h3 className="font-serif text-3xl mb-2 text-[#9e7f66]">
-              Adwin Nugroho Siswoyo
+              apt. Siti Fatimah Azahra, S.Farm
             </h3>
-            <p className="mb-4">Son of Mr. Siswoyo & Mrs. Siti Rukayah</p>
+            <p className="mb-4">
+              Daughter of <br /> Mr. Sidik Murbadianto <br /> Mrs. Indartriwati
+            </p>
             <div className="flex justify-center gap-4">
               <a
                 href="https://instagram.com"

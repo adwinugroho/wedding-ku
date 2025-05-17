@@ -27,8 +27,12 @@ export default function EventDetails() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-[#f0e9e4]">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-20 px-6 bg-[#f0e9e4] relative">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+        style={{ backgroundImage: "url('/red-background-1.png')" }}
+      />
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +40,7 @@ export default function EventDetails() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl mb-6 text-[#9e7f66]">
+          <h2 className="luxurious-script text-4xl mb-6 text-[#9e7f66]">
             Wedding Events
           </h2>
           <p className="text-lg max-w-2xl mx-auto">
@@ -55,7 +59,7 @@ export default function EventDetails() {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-xl shadow-sm"
             >
-              <h3 className="font-serif text-2xl mb-4 text-[#9e7f66]">
+              <h3 className="luxurious-script text-2xl mb-4 text-[#9e7f66]">
                 {event.title}
               </h3>
 

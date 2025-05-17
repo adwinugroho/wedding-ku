@@ -16,7 +16,7 @@ export default function MusicPlayer({
 
   useEffect(() => {
     audioRef.current = new Audio(
-      "/nadhif-basalamah-bergema-sampai-selamanya.mp3" // Corrected path
+      "/niki.mp3" // Corrected path
     );
     audioRef.current.loop = true;
 

@@ -10,6 +10,7 @@ import EventDetails from "@/components/event-details";
 import Gallery from "@/components/gallery";
 import MusicPlayer from "@/components/music-player";
 import Countdown from "@/components/countdown";
+import WishesSection from "@/components/wishes-section";
 import { cn } from "@/lib/utils";
 
 export default function WeddingInvitation() {
@@ -54,7 +55,7 @@ export default function WeddingInvitation() {
           >
             <div className="relative w-32 h-32 mx-auto mb-6">
               <Image
-                src="/placeholder.svg?height=128&width=128"
+                src="/undraw_zoom-in_miok.svg?height=128&width=128"
                 alt="Wedding rings"
                 width={128}
                 height={128}
@@ -62,8 +63,14 @@ export default function WeddingInvitation() {
               />
             </div>
 
-            <h1 className="font-serif text-4xl mb-2 text-[#9e7f66]">
-              Zahra & Adwin
+            <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">
+              Adwin
+            </h1>
+            <br />
+            <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">&</h1>
+            <br />
+            <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">
+              Zahra
             </h1>
             <p className="text-lg mb-6">are getting married</p>
 
@@ -98,10 +105,10 @@ export default function WeddingInvitation() {
         <header className="relative h-screen flex flex-col items-center justify-center text-center p-6 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/placeholder.svg?height=1080&width=1920"
+              src="/red-background-1.png?height=1080&width=1920"
               alt="Background"
               fill
-              className="object-cover brightness-75"
+              className="object-cover opacity-90"
               priority
             />
           </div>
@@ -116,8 +123,8 @@ export default function WeddingInvitation() {
               <h2 className="text-xl uppercase tracking-widest">
                 The Wedding Of
               </h2>
-              <h1 className="font-serif text-5xl md:text-7xl mb-4">
-                Zahra & Adwin
+              <h1 className="luxurious-script text-5xl md:text-7xl mb-4">
+                Adwin & Zahra
               </h1>
               <p className="text-xl mb-8">We are getting married</p>
 
@@ -162,10 +169,19 @@ export default function WeddingInvitation() {
         {/* Gallery */}
         <Gallery />
 
+        {/* Wishes Section */}
+        <WishesSection />
+
         {/* RSVP Section */}
-        <section className="py-20 px-6 bg-[#f0e9e4]">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-4xl mb-8 text-[#9e7f66]">RSVP</h2>
+        <section className="py-20 px-6 relative">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+            style={{ backgroundImage: "url('/red-background-2.png')" }}
+          />
+          <div className="max-w-3xl mx-auto text-center relative z-10">
+            <h2 className="luxurious-script text-4xl mb-8 text-[#9e7f66]">
+              RSVP
+            </h2>
             <p className="mb-8 text-lg">
               We would be honored to have you join us on our special day. Please
               let us know if you can attend.
@@ -262,7 +278,7 @@ export default function WeddingInvitation() {
         {/* Footer */}
         <footer className="py-12 px-6 bg-[#3c3c3c] text-white text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-3xl mb-4">Zahra & Adwin</h2>
+            <h2 className="luxurious-script text-3xl mb-4">Adwin & Zahra</h2>
             <p className="mb-6">Thank you for being part of our special day</p>
             <p className="text-sm opacity-75">
               &copy; {new Date().getFullYear()} • Designed with love

@@ -53,19 +53,25 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "rlig"1, "calt"1;
   }
 }
 
 /* Custom font styles */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Luxurious+Script&display=swap");
 
 .font-serif {
   font-family: "Cormorant Garamond", serif;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif, "Luxurious Script";
+}
+
+/* New class for h1 with Luxurious Script */
+.luxurious-script {
+  font-family: "Luxurious Script", cursive;
 }

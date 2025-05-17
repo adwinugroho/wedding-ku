@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { X } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { X } from "lucide-react";
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
     "/placeholder.svg?height=600&width=800",
@@ -15,11 +15,15 @@ export default function Gallery() {
     "/placeholder.svg?height=600&width=800",
     "/placeholder.svg?height=600&width=800",
     "/placeholder.svg?height=600&width=800",
-  ]
+  ];
 
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-20 px-6 relative">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+        style={{ backgroundImage: "url('/red-background-2.png')" }}
+      />
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -27,8 +31,12 @@ export default function Gallery() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-serif text-4xl mb-6 text-[#9e7f66]">Our Gallery</h2>
-          <p className="text-lg max-w-2xl mx-auto">A glimpse of our journey together through these precious moments.</p>
+          <h2 className="luxurious-script text-4xl mb-6 text-[#9e7f66]">
+            Our Gallery
+          </h2>
+          <p className="text-lg max-w-2xl mx-auto">
+            A glimpse of our journey together through these precious moments.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -124,5 +132,5 @@ export default function Gallery() {
         )}
       </div>
     </section>
-  )
+  );
 }
