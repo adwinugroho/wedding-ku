@@ -8,11 +8,13 @@ export default function CoupleSection() {
     <section className="py-20 px-6 relative min-h-[800px]">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/red-background-1.png"
+          src="/section-background.png"
           alt="Background"
           fill
           className="object-cover opacity-90"
           priority
+          width={750}
+          height={1334}
         />
       </div>
       <div className="max-w-4xl mx-auto relative z-10">

@@ -30,7 +30,7 @@ export default function EventDetails() {
     <section className="py-20 px-6 bg-[#f0e9e4] relative">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-        style={{ backgroundImage: "url('/red-background-1.png')" }}
+        style={{ backgroundImage: "url('/section-background.png')" }}
       />
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div

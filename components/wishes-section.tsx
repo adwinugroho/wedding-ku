@@ -40,7 +40,7 @@ export default function WishesSection() {
       name: "Aisha Rahman",
       message:
         "So happy for you both! May Allah bless your marriage and fill your lives with joy.",
-      date: new Date("2025-08-97"),
+      date: new Date("2025-08-09"),
     },
   ]);
 
@@ -90,7 +90,7 @@ export default function WishesSection() {
     <section className="py-20 px-6 relative min-h-[800px]">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/red-background-2.png"
+          src="/section-background.png"
           alt="Background"
           fill
           className="object-cover object-center opacity-90"

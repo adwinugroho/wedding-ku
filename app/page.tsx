@@ -11,6 +11,8 @@ import Gallery from "@/components/gallery";
 import MusicPlayer from "@/components/music-player";
 import Countdown from "@/components/countdown";
 import WishesSection from "@/components/wishes-section";
+import WeddingGiftSection from "@/components/wedding-gift-section";
+import RSVPSection from "@/components/rsvp-section";
 import { cn } from "@/lib/utils";
 
 export default function WeddingInvitation() {
@@ -37,7 +39,7 @@ export default function WeddingInvitation() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#f9f5f2] text-[#3c3c3c] overflow-x-hidden">
+    <main className="max-w-screen-sm mx-auto px-4 bg-[#f9f5f2] text-[#3c3c3c] min-h-screen">
       {/* Cover/Envelope */}
       {!isOpen && (
         <motion.div
@@ -47,18 +49,30 @@ export default function WeddingInvitation() {
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 1 }}
         >
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/front-background.png"
+              alt="Background"
+              fill
+              className="object-cover opacity-90"
+              priority
+              width={750}
+              height={1334}
+            />
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-md mx-auto"
+            className="max-w-md mx-auto relative z-10"
           >
-            <div className="relative w-32 h-32 mx-auto mb-6">
+            <div className="relative w-32 h-32 mx-auto mb-14">
               <Image
-                src="/undraw_zoom-in_miok.svg?height=128&width=128"
-                alt="Wedding rings"
-                width={128}
-                height={128}
+                // src="/undraw_zoom-in_miok.svg?height=128&width=128"
+                src="/ceco-720x1024.png"
+                alt="Avatar"
+                width={720}
+                height={1024}
                 className="object-contain"
               />
             </div>
@@ -72,14 +86,14 @@ export default function WeddingInvitation() {
             <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">
               Zahra
             </h1>
-            <p className="text-lg mb-6">are getting married</p>
+            <p className="text-lg mb-6 text-[#9e7f66]">are getting married</p>
 
-            <div className="mb-8 p-4 border border-[#d3c5bb] rounded-lg bg-white/50 backdrop-blur-sm">
-              <p className="text-lg mb-2">Dear,</p>
+            <div className="mb-8 p-4 border border-[#d3c5bb] rounded-lg bg-white">
+              <p className="text-lg mb-2 text-[#9e7f66]">Dear,</p>
               <p className="text-2xl font-medium text-[#9e7f66] mb-2">
                 {guestName}
               </p>
-              <p className="text-sm">
+              <p className="text-sm text-[#9e7f66]">
                 You are cordially invited to our wedding celebration
               </p>
             </div>
@@ -105,7 +119,7 @@ export default function WeddingInvitation() {
         <header className="relative h-screen flex flex-col items-center justify-center text-center p-6 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/red-background-1.png?height=1080&width=1920"
+              src="/section-background.png?height=1334&width=750"
               alt="Background"
               fill
               className="object-cover opacity-90"
@@ -172,111 +186,14 @@ export default function WeddingInvitation() {
         {/* Wishes Section */}
         <WishesSection />
 
+        {/* Wedding Gift Section */}
+        <WeddingGiftSection />
+
         {/* RSVP Section */}
-        <section className="py-20 px-6 relative">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-            style={{ backgroundImage: "url('/red-background-2.png')" }}
-          />
-          <div className="max-w-3xl mx-auto text-center relative z-10">
-            <h2 className="luxurious-script text-4xl mb-8 text-[#9e7f66]">
-              RSVP
-            </h2>
-            <p className="mb-8 text-lg">
-              We would be honored to have you join us on our special day. Please
-              let us know if you can attend.
-            </p>
-
-            <div className="bg-white p-8 rounded-xl shadow-sm">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2 text-left">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full p-3 border border-[#d3c5bb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9e7f66]"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  <div className="space-y-2 text-left">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full p-3 border border-[#d3c5bb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9e7f66]"
-                      placeholder="Enter your email"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2 text-left">
-                  <label className="text-sm font-medium">
-                    Will you attend?
-                  </label>
-                  <div className="flex gap-4">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="attendance"
-                        value="yes"
-                        className="text-[#9e7f66]"
-                      />
-                      <span>Yes, I will attend</span>
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="attendance"
-                        value="no"
-                        className="text-[#9e7f66]"
-                      />
-                      <span>No, I cannot attend</span>
-                    </label>
-                  </div>
-                </div>
-
-                <div className="space-y-2 text-left">
-                  <label htmlFor="guests" className="text-sm font-medium">
-                    Number of Guests
-                  </label>
-                  <select
-                    id="guests"
-                    className="w-full p-3 border border-[#d3c5bb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9e7f66]"
-                  >
-                    <option value="1">1 person</option>
-                    <option value="2">2 people</option>
-                    <option value="3">3 people</option>
-                    <option value="4">4 people</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2 text-left">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message for the Couple (Optional)
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full p-3 border border-[#d3c5bb] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9e7f66]"
-                    placeholder="Write your message here..."
-                  ></textarea>
-                </div>
-
-                <Button className="w-full bg-[#9e7f66] hover:bg-[#8a6e58] text-white py-3 rounded-lg text-lg">
-                  Submit RSVP
-                </Button>
-              </form>
-            </div>
-          </div>
-        </section>
+        <RSVPSection />
 
         {/* Footer */}
-        <footer className="py-12 px-6 bg-[#3c3c3c] text-white text-center">
+        <footer className="py-12 px-6 bg-[#9e7f66] text-white text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="luxurious-script text-3xl mb-4">Adwin & Zahra</h2>
             <p className="mb-6">Thank you for being part of our special day</p>
