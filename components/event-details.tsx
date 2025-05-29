@@ -18,7 +18,7 @@ export default function EventDetails() {
     {
       title: "Wedding Reception",
       date: "September 06, 2025",
-      time: "11:00 - Selesai",
+      time: "11:00 - Done",
       location: "Aula SMK Negeri 26 Jakarta",
       address:
         "Jl. Balai Pustaka Baru I No.2, RT.2/RW.7, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220",
@@ -101,30 +101,6 @@ export default function EventDetails() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-16 p-8 bg-white rounded-xl shadow-sm"
-        >
-          <h3 className="font-serif text-2xl mb-4 text-[#9e7f66]">
-            Dress Code
-          </h3>
-          <p className="mb-6">We kindly request our guests to wear:</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-lg mx-auto">
-            <div className="p-4 border border-[#d3c5bb] rounded-lg">
-              <p className="font-medium mb-2">Ladies</p>
-              <p>Pastel or Soft Colors</p>
-            </div>
-            <div className="p-4 border border-[#d3c5bb] rounded-lg">
-              <p className="font-medium mb-2">Gentlemen</p>
-              <p>Formal Attire</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

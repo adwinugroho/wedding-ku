@@ -51,14 +51,14 @@ export default function WeddingGiftSection() {
                   </h3>
                   <div className="relative w-48 h-48 mx-auto mb-4">
                     <Image
-                      src="/qr-code.jpeg"
+                      src="/qr-code-2.png"
                       alt="QR Code"
                       fill
                       className="object-contain"
                     />
                   </div>
                   <p className="text-sm text-gray-600">
-                    Scan to transfer via e-wallet
+                    Scan to transfer to BCA
                   </p>
                 </div>
               </CardContent>
@@ -84,6 +84,14 @@ export default function WeddingGiftSection() {
                   <p className="text-lg">5235240685</p>
                   <p className="text-sm text-gray-600">
                     a.n. Adwin Nugroho Siswoyo
+                  </p>
+                </div>
+                <br />
+                <div className="space-y-2">
+                  <p className="font-medium">Bank Rakyat Indonesia (BRI)</p>
+                  <p className="text-lg">330801017259538</p>
+                  <p className="text-sm text-gray-600">
+                    a.n. Siti Fatimah Azahra
                   </p>
                 </div>
               </CardContent>

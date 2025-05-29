@@ -169,7 +169,7 @@ export default function WishesSection() {
           </Card>
 
           <div className="mt-12 space-y-4">
-            <h3 className="text-2xl font-serif mb-6 text-[#9e7f66] text-center">
+            <h3 className="text-2xl luxurious-script mb-6 text-[#9e7f66] text-center">
               Messages from Loved Ones
             </h3>
 

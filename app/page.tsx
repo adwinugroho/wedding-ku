@@ -66,25 +66,17 @@ export default function WeddingInvitation() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="max-w-md mx-auto relative z-10"
           >
-            <div className="relative w-32 h-32 mx-auto mb-14">
+            <div className="relative w-128 h-128 mx-auto mb-8 overflow-hidden">
               <Image
-                // src="/undraw_zoom-in_miok.svg?height=128&width=128"
                 src="/ceco-720x1024.png"
                 alt="Avatar"
                 width={720}
                 height={1024}
-                className="object-contain"
+                className="object-cover w-full h-full"
               />
             </div>
-
-            <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">
-              Adwin
-            </h1>
-            <br />
-            <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">&</h1>
-            <br />
-            <h1 className="luxurious-script text-4xl mb-2 text-[#9e7f66]">
-              Zahra
+            <h1 className="luxurious-script text-4xl mb-8 text-[#9e7f66]">
+              Zahra & Adwin
             </h1>
             <p className="text-lg mb-6 text-[#9e7f66]">are getting married</p>
 
@@ -132,13 +124,13 @@ export default function WeddingInvitation() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="space-y-6 backdrop-blur-sm bg-black/20 p-8 rounded-xl text-white"
+              className="space-y-4 bg-[#800000] p-8 rounded-xl text-[#9e7f66]"
             >
               <h2 className="text-xl uppercase tracking-widest">
                 The Wedding Of
               </h2>
               <h1 className="luxurious-script text-5xl md:text-7xl mb-4">
-                Adwin & Zahra
+                Zahra & Adwin
               </h1>
               <p className="text-xl mb-8">We are getting married</p>
 
