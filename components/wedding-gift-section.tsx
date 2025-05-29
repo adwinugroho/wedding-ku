@@ -6,10 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function WeddingGiftSection() {
   return (
-    <section className="py-20 px-6 relative min-h-[600px]">
+    <section className="py-20 px-6 relative min-h-[800px]">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/section-background.png"
+          src="/section-background-2.png"
           alt="Background"
           fill
           className="object-cover object-center opacity-90"
@@ -29,13 +29,13 @@ export default function WeddingGiftSection() {
           <h2 className="luxurious-script text-4xl mb-6 text-[#9e7f66]">
             Wedding Gift
           </h2>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-lg text-[#d2cab5] max-w-2xl mx-auto">
             Your presence is the greatest gift, but if you wish to give us a
             gift, here are our details.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {/* QR Code
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -77,7 +77,7 @@ export default function WeddingGiftSection() {
             <Card className="bg-white/95 backdrop-blur-md shadow-lg">
               <CardContent className="pt-6">
                 <h3 className="text-center font-medium text-[#9e7f66] mb-4">
-                  Bank Rakyat Indonesia (BRI)
+                  Bank BRI
                 </h3>
                 <div className="space-y-2">
                   <p className="text-lg text-center">330801017259538</p>
@@ -91,7 +91,7 @@ export default function WeddingGiftSection() {
             <Card className="bg-white/95 backdrop-blur-md shadow-lg">
               <CardContent className="pt-6">
                 <h3 className="text-center font-medium text-[#9e7f66] mb-4">
-                  Bank Central Asia (BCA)
+                  Bank BCA
                 </h3>
                 <div className="space-y-2">
                   <p className="text-lg text-center">5235240685</p>
@@ -106,12 +106,12 @@ export default function WeddingGiftSection() {
             {/* Home Address */}
             <Card className="bg-white/95 backdrop-blur-md shadow-lg">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-medium text-[#9e7f66] mb-4">
+                <h3 className="text-xl font-medium text-[#9e7f66] mb-4 text-center">
                   Home Address
                 </h3>
                 <div className="space-y-2">
-                  <p className="font-medium">Siti Fatimah Azahra</p>
-                  <p className="text-sm">
+                  <p className="font-medium text-center">Siti Fatimah Azahra</p>
+                  <p className="text-sm text-center">
                     Jl. Pisangan Baru Utara No.18 (Gang Nambru simpangan belok
                     kiri, rumah pertama pagar hijau), Matraman, Jakarta Timur
                     <br />

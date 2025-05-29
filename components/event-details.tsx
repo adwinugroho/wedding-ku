@@ -14,7 +14,7 @@ export default function EventDetails() {
       address:
         "Jl. Balai Pustaka Baru I No.2, RT.2/RW.7, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220",
       mapUrl: "https://maps.app.goo.gl/Evr9EyLYNEvyXYRQ9",
-      icon: "/corsage.png",
+      icon: "/flower.png",
     },
     {
       title: "Wedding Reception",
@@ -24,7 +24,7 @@ export default function EventDetails() {
       address:
         "Jl. Balai Pustaka Baru I No.2, RT.2/RW.7, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220",
       mapUrl: "https://maps.app.goo.gl/Evr9EyLYNEvyXYRQ9",
-      icon: "/wedding-rings.png",
+      icon: "/wedding-ring.png",
     },
   ];
 

@@ -21,7 +21,7 @@ export default function Gallery() {
     <section className="py-20 px-6 relative">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
-        style={{ backgroundImage: "url('/section-background.png')" }}
+        style={{ backgroundImage: "url('/section-background-2.png')" }}
       />
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
@@ -34,7 +34,7 @@ export default function Gallery() {
           <h2 className="luxurious-script text-4xl mb-6 text-[#9e7f66]">
             Our Gallery
           </h2>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto text-[#d2cab5]">
             A glimpse of our journey together through these precious moments.
           </p>
         </motion.div>
