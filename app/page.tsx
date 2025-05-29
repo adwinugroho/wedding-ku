@@ -22,14 +22,20 @@ export default function WeddingInvitation() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // Disable scrolling when envelope is closed
+    const body = document.body;
+    const html = document.documentElement;
+
     if (!isOpen) {
-      document.body.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+      html.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      body.style.overflow = "auto";
+      html.style.overflow = "auto";
     }
+
     return () => {
-      document.body.style.overflow = "auto";
+      body.style.overflow = "auto";
+      html.style.overflow = "auto";
     };
   }, [isOpen]);
 
@@ -66,13 +72,13 @@ export default function WeddingInvitation() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="max-w-md mx-auto relative z-10"
           >
-            <div className="relative w-128 h-128 mx-auto mb-8 overflow-hidden">
+            <div className="relative w-32 h-48 mx-auto mb-8 overflow-hidden">
               <Image
                 src="/ceco-720x1024.png"
                 alt="Avatar"
                 width={720}
                 height={1024}
-                className="object-cover w-full h-full"
+                className="object-cover object center"
               />
             </div>
             <h1 className="luxurious-script text-4xl mb-8 text-[#9e7f66]">
@@ -119,7 +125,7 @@ export default function WeddingInvitation() {
             />
           </div>
 
-          <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="relative justify-center mb-8 overflow-hidden">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -166,28 +172,18 @@ export default function WeddingInvitation() {
           </motion.div>
         </header>
 
-        {/* Couple Section */}
+        {/* Sections */}
         <CoupleSection />
-
-        {/* Event Details */}
         <EventDetails />
-
-        {/* Gallery */}
         <Gallery />
-
-        {/* Wishes Section */}
         <WishesSection />
-
-        {/* Wedding Gift Section */}
         <WeddingGiftSection />
-
-        {/* RSVP Section */}
         <RSVPSection />
 
         {/* Footer */}
-        <footer className="py-12 px-6 bg-[#9e7f66] text-white text-center">
+        <footer className="py-12 px-6 bg-[#800000] text-[#9e7f66] text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="luxurious-script text-3xl mb-4">Adwin & Zahra</h2>
+            <h2 className="luxurious-script text-3xl mb-4">Zahra & Adwin</h2>
             <p className="mb-6">Thank you for being part of our special day</p>
             <p className="text-sm opacity-75">
               &copy; {new Date().getFullYear()} • Designed with love

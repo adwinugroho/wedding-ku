@@ -14,6 +14,7 @@ export default function EventDetails() {
       address:
         "Jl. Balai Pustaka Baru I No.2, RT.2/RW.7, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220",
       mapUrl: "https://maps.app.goo.gl/Evr9EyLYNEvyXYRQ9",
+      icon: "/corsage.png",
     },
     {
       title: "Wedding Reception",
@@ -23,6 +24,7 @@ export default function EventDetails() {
       address:
         "Jl. Balai Pustaka Baru I No.2, RT.2/RW.7, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220",
       mapUrl: "https://maps.app.goo.gl/Evr9EyLYNEvyXYRQ9",
+      icon: "/wedding-rings.png",
     },
   ];
 
@@ -59,6 +61,17 @@ export default function EventDetails() {
               viewport={{ once: true }}
               className="bg-white p-8 rounded-xl shadow-sm"
             >
+              <div className="flex justify-center mb-6">
+                {event.icon.startsWith("/") ? (
+                  <img
+                    src={event.icon}
+                    alt={`${event.title} icon`}
+                    className="w-16 h-16 object-contain"
+                  />
+                ) : (
+                  <span className="text-4xl">{event.icon}</span>
+                )}
+              </div>
               <h3 className="luxurious-script text-2xl mb-4 text-[#9e7f66]">
                 {event.title}
               </h3>

@@ -36,7 +36,7 @@ export default function WeddingGiftSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* QR Code */}
+          {/* QR Code
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -63,7 +63,7 @@ export default function WeddingGiftSection() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </motion.div> */}
 
           {/* Bank Account & Address */}
           <motion.div
@@ -76,24 +76,30 @@ export default function WeddingGiftSection() {
             {/* Bank Account */}
             <Card className="bg-white/95 backdrop-blur-md shadow-lg">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-medium text-[#9e7f66] mb-4">
-                  Bank Transfer
+                <h3 className="text-center font-medium text-[#9e7f66] mb-4">
+                  Bank Rakyat Indonesia (BRI)
                 </h3>
                 <div className="space-y-2">
-                  <p className="font-medium">Bank Central Asia (BCA)</p>
-                  <p className="text-lg">5235240685</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-lg text-center">330801017259538</p>
+                  <p className="text-sm text-gray-600 text-center">
+                    a.n. Siti Fatimah Azahra
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/95 backdrop-blur-md shadow-lg">
+              <CardContent className="pt-6">
+                <h3 className="text-center font-medium text-[#9e7f66] mb-4">
+                  Bank Central Asia (BCA)
+                </h3>
+                <div className="space-y-2">
+                  <p className="text-lg text-center">5235240685</p>
+                  <p className="text-sm text-gray-600 text-center">
                     a.n. Adwin Nugroho Siswoyo
                   </p>
                 </div>
                 <br />
-                <div className="space-y-2">
-                  <p className="font-medium">Bank Rakyat Indonesia (BRI)</p>
-                  <p className="text-lg">330801017259538</p>
-                  <p className="text-sm text-gray-600">
-                    a.n. Siti Fatimah Azahra
-                  </p>
-                </div>
               </CardContent>
             </Card>
 

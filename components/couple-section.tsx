@@ -11,7 +11,7 @@ export default function CoupleSection() {
           src="/section-background.png"
           alt="Background"
           fill
-          className="object-cover opacity-90"
+          className="object-cover"
           priority
           width={750}
           height={1334}
@@ -91,13 +91,13 @@ export default function CoupleSection() {
           viewport={{ once: true }}
           className="text-center mt-16 p-8 bg-[#f0e9e4] rounded-xl"
         >
-          <p className="text-lg italic font-serif text-[#9e7f66]">
+          <p className="text-xs italic font-serif text-[#9e7f66]">
             "And of His signs is that He created for you from yourselves mates
             that you may find tranquility in them; and He placed between you
             affection and mercy. Indeed in that are signs for a people who give
             thought."
           </p>
-          <p className="mt-4 text-sm">Ar-Rum 30:21</p>
+          <p className="mt-4 text-xs">Ar-Rum 30:21</p>
         </motion.div>
       </div>
     </section>
