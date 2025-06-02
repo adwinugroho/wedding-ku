@@ -9,12 +9,12 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
+    "/1.JPG?height=600&width=800",
+    "/2.JPG?height=600&width=800",
+    "/3.JPG?height=600&width=800",
+    "/4.JPG?height=600&width=800",
+    "/5.JPG?height=600&width=800",
+    "/6.JPG?height=600&width=800",
   ];
 
   return (

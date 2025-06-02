@@ -1,48 +1,27 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/lib/toast-store";
 import { Card, CardContent } from "@/components/ui/card";
 import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Wish {
-  id: number;
+  id: string;
   name: string;
   message: string;
-  date: Date;
+  created_at: string;
 }
 
 export default function WishesSection() {
-  const [wishes, setWishes] = useState<Wish[]>([
-    {
-      id: 1,
-      name: "Hodi",
-      message:
-        "Congratulations on your special day! Wishing you a lifetime of love and happiness together.",
-      date: new Date("2025-08-11"),
-    },
-    {
-      id: 2,
-      name: "Febri",
-      message:
-        "May your love continue to grow stronger with each passing day. Best wishes to both of you!",
-      date: new Date("2025-08-10"),
-    },
-    {
-      id: 3,
-      name: "Aisha Rahman",
-      message:
-        "So happy for you both! May Allah bless your marriage and fill your lives with joy.",
-      date: new Date("2025-08-09"),
-    },
-  ]);
+  const [wishes, setWishes] = useState<Wish[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -50,6 +29,29 @@ export default function WishesSection() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    fetchWishes();
+  }, []);
+
+  const fetchWishes = async () => {
+    try {
+      const response = await fetch("/api/wishes/list", {
+        headers: {
+          "x-api-key-wedding": process.env.NEXT_PUBLIC_WEDDING_API_KEY || "",
+        },
+      });
+      const result = await response.json();
+      if (result.status) {
+        setWishes(result.data);
+      }
+    } catch (error) {
+      console.error("Error fetching wishes:", error);
+      toast("Failed to load wishes. Please try again later.", "error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -62,28 +64,35 @@ export default function WishesSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("/api/wishes/new", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key-wedding": process.env.NEXT_PUBLIC_WEDDING_API_KEY || "",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const newWish: Wish = {
-      id: wishes.length + 1,
-      name: formData.name,
-      message: formData.message,
-      date: new Date(),
-    };
+      const result = await response.json();
 
-    setWishes([newWish, ...wishes]);
-
-    toast({
-      title: "Wish Submitted",
-      description: "Thank you for your lovely message!",
-    });
-
-    setIsSubmitting(false);
-    setFormData({
-      name: "",
-      message: "",
-    });
+      if (result.status) {
+        toast("Thank you for your lovely message.", "success");
+        setFormData({
+          name: "",
+          message: "",
+        });
+        // Refresh the wishes list
+        fetchWishes();
+      } else {
+        throw new Error(result.message || "Failed to submit wish");
+      }
+    } catch (error) {
+      console.error("Error submitting wish:", error);
+      toast("Failed to submit wishes. Please try again later.", "error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -174,31 +183,41 @@ export default function WishesSection() {
             </h3>
 
             <div className="grid gap-4">
-              {wishes.map((wish) => (
-                <motion.div
-                  key={wish.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="text-left bg-white/95 backdrop-blur-md shadow-lg">
-                    <CardContent className="pt-6">
-                      <div className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <h4 className="font-medium text-[#9e7f66]">
-                            {wish.name}
-                          </h4>
-                          <p className="text-xs text-gray-500">
-                            {wish.date.toLocaleDateString()}
+              {isLoading ? (
+                <div className="text-center py-4">Loading wishes...</div>
+              ) : wishes.length === 0 ? (
+                <div className="text-center py-4">
+                  No wishes yet. Be the first to send your wishes!
+                </div>
+              ) : (
+                wishes.map((wish) => (
+                  <motion.div
+                    key={wish.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    <Card className="text-left bg-white/95 backdrop-blur-md shadow-lg">
+                      <CardContent className="pt-6">
+                        <div className="space-y-2">
+                          <div className="flex justify-between items-center">
+                            <h4 className="font-medium text-[#9e7f66]">
+                              {wish.name}
+                            </h4>
+                            <p className="text-xs text-gray-500">
+                              {new Date(wish.created_at).toLocaleDateString()}
+                            </p>
+                          </div>
+                          <p className="text-gray-600 italic">
+                            "{wish.message}"
                           </p>
                         </div>
-                        <p className="text-gray-600 italic">"{wish.message}"</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))
+              )}
             </div>
           </div>
         </div>

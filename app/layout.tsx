@@ -1,8 +1,13 @@
 import type React from "react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Toaster from "@/components/Toaster";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-export const metadata = {
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
   title: "Zahra & Adwin Wedding Invitation",
   description:
     "We are getting married and would love for you to join us on our special day.",
@@ -44,6 +49,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
