@@ -37,9 +37,7 @@ export default function WishesSection() {
   const fetchWishes = async () => {
     try {
       const response = await fetch("/api/wishes/list", {
-        headers: {
-          "x-api-key-wedding": process.env.WEDDING_API_KEY || "",
-        },
+        method: "GET",
       });
       const result = await response.json();
       if (result.status) {
@@ -69,7 +67,6 @@ export default function WishesSection() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key-wedding": process.env.WEDDING_API_KEY || "",
         },
         body: JSON.stringify(formData),
       });

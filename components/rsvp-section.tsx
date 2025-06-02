@@ -38,7 +38,6 @@ export default function RSVPSection() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key-wedding": process.env.WEDDING_API_KEY || "",
         },
         body: JSON.stringify({
           ...formData,
@@ -47,7 +46,7 @@ export default function RSVPSection() {
       });
 
       const result = await response.json();
-      console.log("API Response:", result); // Debug log
+      console.log("API Response:", result);
 
       if (result.status === true) {
         toast("RSVP submitted successfully", "success");
