@@ -36,8 +36,10 @@ export default function WishesSection() {
 
   const fetchWishes = async () => {
     try {
-      const response = await fetch("/api/wishes/list", {
-        method: "GET",
+      const response = await fetch("/api/wishes", {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const result = await response.json();
       if (result.status) {

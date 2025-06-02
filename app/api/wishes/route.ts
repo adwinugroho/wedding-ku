@@ -1,13 +1,9 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const body = await request.json();
-
     const response = await fetch('https://go-vercel-wedding-invitation.vercel.app/api/wishes/list', {
-      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
         'x-api-key-wedding': process.env.WEDDING_API_KEY || '',
       },
     });
@@ -15,11 +11,10 @@ export async function GET(request: Request) {
     const result = await response.json();
     return NextResponse.json(result);
   } catch (error) {
-    console.error('Error in wishes API route:', error);
+    console.error('Error in Wishes API route:', error);
     return NextResponse.json(
-      { status: false, message: 'Failed fetch wishes' },
+      { status: false, message: 'Failed to fetch wishes' },
       { status: 500 }
     );
   }
-}
-
+} 
