@@ -46,7 +46,7 @@ export default function CoupleSection() {
             <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb]">
               <Image
                 src="/icon-zahra.png?height=256&width=256"
-                alt="Lila"
+                alt="Zahra"
                 fill
                 className="object-cover"
               />
