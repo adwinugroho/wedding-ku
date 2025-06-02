@@ -38,7 +38,7 @@ export default function RSVPSection() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key-wedding": process.env.NEXT_PUBLIC_WEDDING_API_KEY || "",
+          "x-api-key-wedding": process.env.WEDDING_API_KEY || "",
         },
         body: JSON.stringify({
           ...formData,
