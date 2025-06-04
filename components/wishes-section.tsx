@@ -181,7 +181,7 @@ export default function WishesSection() {
               Messages from Loved Ones
             </h3>
 
-            <div className="grid gap-4">
+            <div className="grid gap-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
               {isLoading ? (
                 <div className="text-center py-4">Loading wishes...</div>
               ) : wishes.length === 0 ? (

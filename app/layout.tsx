@@ -1,7 +1,7 @@
 import type React from "react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import Toaster from "@/components/Toaster";
+import Toaster from "@/components/ui/Toaster";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   description:
     "We are getting married and would love for you to join us on our special day.",
   generator: "v0.dev",
+  icons: {
+    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
   openGraph: {
     title: "Zahra & Adwin Wedding Invitation",
     description:
