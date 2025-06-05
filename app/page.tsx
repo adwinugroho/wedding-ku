@@ -13,6 +13,7 @@ import Countdown from "@/components/countdown";
 import WishesSection from "@/components/wishes-section";
 import WeddingGiftSection from "@/components/wedding-gift-section";
 import RSVPSection from "@/components/rsvp-section";
+import HotelsNearbySection from "@/components/hotels-nearby-section";
 import { cn } from "@/lib/utils";
 
 export default function WeddingInvitation() {
@@ -179,6 +180,7 @@ export default function WeddingInvitation() {
         <WishesSection />
         <WeddingGiftSection />
         <RSVPSection />
+        <HotelsNearbySection />
 
         {/* Footer */}
         <footer className="py-12 px-6 bg-[#800000] text-[#9e7f66] text-center">
