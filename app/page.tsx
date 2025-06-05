@@ -46,7 +46,7 @@ export default function WeddingInvitation() {
   };
 
   return (
-    <main className="max-w-screen-sm mx-auto px-4 bg-[#f9f5f2] text-[#3c3c3c] min-h-screen">
+    <main className="relative max-w-screen-sm mx-auto px-4 bg-[#f9f5f2] text-[#3c3c3c] min-h-screen">
       {/* Cover/Envelope */}
       {!isOpen && (
         <motion.div
@@ -61,10 +61,8 @@ export default function WeddingInvitation() {
               src="/front-background.png"
               alt="Background"
               fill
-              className="object-cover opacity-90"
+              className="w-full h-full object-cover"
               priority
-              width={750}
-              height={1334}
             />
           </div>
           <motion.div
@@ -73,13 +71,11 @@ export default function WeddingInvitation() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="max-w-md mx-auto relative z-10"
           >
-            <div className="relative w-32 h-48 mx-auto mb-8 overflow-hidden">
+            <div className="relative w-32 h-48 sm:w-40 sm:h-60 md:w-48 md:h-72 lg:w-56 lg:h-80 xl:w-64 xl:h-96 mx-auto mb-8 overflow-hidden">
               <Image
                 src="/ceco-720x1024.png"
                 alt="Avatar"
-                width={720}
-                height={1024}
-                className="object-cover object center"
+                className="object-cover object-center w-full h-full"
               />
             </div>
             <h1 className="luxurious-script text-4xl mb-8 text-[#9e7f66]">
