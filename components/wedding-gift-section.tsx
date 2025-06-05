@@ -3,8 +3,23 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 
 export default function WeddingGiftSection() {
+  const [copyStatus, setCopyStatus] = useState<{ [key: string]: string }>({});
+
+  const handleCopy = async (text: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopyStatus({ [key]: "Copied!" });
+      setTimeout(() => {
+        setCopyStatus({ [key]: "" });
+      }, 2000);
+    } catch (err) {
+      setCopyStatus({ [key]: "Failed to copy" });
+    }
+  };
+
   return (
     <section className="py-20 px-6 relative min-h-[800px]">
       <div className="absolute inset-0 z-0">
@@ -80,7 +95,15 @@ export default function WeddingGiftSection() {
                   Bank BRI
                 </h3>
                 <div className="space-y-2">
-                  <p className="text-lg text-center">330801017259538</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-lg text-center">330801017259538</p>
+                    <button
+                      onClick={() => handleCopy("330801017259538", "bri")}
+                      className="text-sm px-2 py-1 bg-[#9e7f66] text-white rounded hover:bg-[#8a6d57] transition-colors"
+                    >
+                      {copyStatus["bri"] || "Copy"}
+                    </button>
+                  </div>
                   <p className="text-sm text-gray-600 text-center">
                     a.n. Siti Fatimah Azahra
                   </p>
@@ -94,7 +117,15 @@ export default function WeddingGiftSection() {
                   Bank BCA
                 </h3>
                 <div className="space-y-2">
-                  <p className="text-lg text-center">5235240685</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-lg text-center">5235240685</p>
+                    <button
+                      onClick={() => handleCopy("5235240685", "bca")}
+                      className="text-sm px-2 py-1 bg-[#9e7f66] text-white rounded hover:bg-[#8a6d57] transition-colors"
+                    >
+                      {copyStatus["bca"] || "Copy"}
+                    </button>
+                  </div>
                   <p className="text-sm text-gray-600 text-center">
                     a.n. Adwin Nugroho Siswoyo
                   </p>
@@ -111,14 +142,24 @@ export default function WeddingGiftSection() {
                 </h3>
                 <div className="space-y-2">
                   <p className="font-medium text-center">Siti Fatimah Azahra</p>
-                  <p className="text-sm text-center">
-                    Jl. Pisangan Baru Utara No.18 (Gang Nambru simpangan belok
-                    kiri, rumah pertama pagar hijau), Matraman, Jakarta Timur
-                    <br />
-                    DKI Jakarta, Indonesia
-                    <br />
-                    13110
-                  </p>
+                  <div className="flex flex-col items-center gap-2">
+                    <p className="text-sm text-center">
+                      Jl. Pisangan Baru Utara No.18 (Gang Nambru simpangan belok
+                      kiri, rumah pertama pagar hijau), Matraman, Jakarta Timur
+                      13110
+                    </p>
+                    <button
+                      onClick={() =>
+                        handleCopy(
+                          "Jl. Pisangan Baru Utara No.18 (Gang Nambru simpangan belok kiri, rumah pertama pagar hijau), Matraman, Jakarta Timur 13110",
+                          "address"
+                        )
+                      }
+                      className="text-sm px-2 py-1 bg-[#9e7f66] text-white rounded hover:bg-[#8a6d57] transition-colors"
+                    >
+                      {copyStatus["address"] || "Copy Address"}
+                    </button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
