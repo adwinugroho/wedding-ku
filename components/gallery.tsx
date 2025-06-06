@@ -10,11 +10,14 @@ export default function Gallery() {
 
   const images = [
     "/1.JPG?height=600&width=800",
-    "/2.JPG?height=600&width=800",
-    "/3.JPG?height=600&width=800",
     "/4.JPG?height=600&width=800",
-    "/5.JPG?height=600&width=800",
-    "/6.JPG?height=600&width=800",
+    "/8.jpeg?height=600&width=800",
+    "/11.jpeg?height=600&width=800",
+    "/12.jpeg?height=600&width=800",
+    "/13.jpeg?height=600&width=800",
+    "/14.jpeg?height=600&width=800",
+    "/15.jpeg?height=600&width=800",
+    "/17.jpeg?height=600&width=800",
   ];
 
   return (
