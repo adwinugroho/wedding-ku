@@ -9,15 +9,18 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
-    "/1.JPG?height=600&width=800",
-    "/4.JPG?height=600&width=800",
+    "/1-1.JPG?height=600&width=800",
+    "/1-2.JPG?height=600&width=800",
+    "/1.jpeg?height=600&width=800",
+    "/2.jpeg?height=600&width=800",
+    "/3.jpeg?height=600&width=800",
+    "/4.jpeg?height=600&width=800",
+    "/5.jpeg?height=600&width=800",
+    "/6.jpeg?height=600&width=800",
+    "/7.jpeg?height=600&width=800",
     "/8.jpeg?height=600&width=800",
-    "/11.jpeg?height=600&width=800",
-    "/12.jpeg?height=600&width=800",
-    "/13.jpeg?height=600&width=800",
-    "/14.jpeg?height=600&width=800",
-    "/15.jpeg?height=600&width=800",
-    "/17.jpeg?height=600&width=800",
+    "/9.jpeg?height=600&width=800",
+    "/10.jpeg?height=600&width=800",
   ];
 
   return (
