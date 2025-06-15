@@ -19,7 +19,7 @@ export default function EventDetails() {
     {
       title: "Wedding Reception",
       date: "September 06, 2025",
-      time: "11:00 - Done",
+      time: "11:00 - 13:00",
       location: "Aula SMK Negeri 26 Jakarta",
       address:
         "Jl. Balai Pustaka Baru I No.2, RT.2/RW.7, Rawamangun, Kec. Pulo Gadung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13220",
