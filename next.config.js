@@ -6,6 +6,12 @@ const nextConfig = {
             destination: 'https://go-vercel-wedding-invitation.vercel.app/api/:path*',
         }, ];
     },
+    images: {
+        domains: [
+            'res.cloudinary.com',
+            // add other domains as needed
+        ],
+    },
 };
 
 module.exports = nextConfig;

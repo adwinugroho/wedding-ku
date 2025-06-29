@@ -12,6 +12,7 @@ import MusicPlayer from "@/components/music-player";
 import Countdown from "@/components/countdown";
 import WishesSection from "@/components/wishes-section";
 import WeddingGiftSection from "@/components/wedding-gift-section";
+import GiftRecommendationSection from "@/components/gift-recommendation-section";
 import RSVPSection from "@/components/rsvp-section";
 import HotelsNearbySection from "@/components/hotels-nearby-section";
 import { cn } from "@/lib/utils";
@@ -175,6 +176,7 @@ export default function WeddingInvitation() {
         <Gallery />
         <WishesSection />
         <WeddingGiftSection />
+        <GiftRecommendationSection />
         <RSVPSection />
         <HotelsNearbySection />
 

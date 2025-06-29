@@ -8,6 +8,14 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    domains: [
+      'res.cloudinary.com',
+      // add other domains as needed
+    ],
+    remotePatterns: [
+      'res.cloudinary.com',
+      // add other domains as needed
+    ],
   },
 }
 
