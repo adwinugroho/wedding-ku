@@ -185,9 +185,17 @@ export default function WeddingInvitation() {
           <div className="max-w-3xl mx-auto">
             <h2 className="luxurious-script text-3xl mb-4">Zahra & Adwin</h2>
             <p className="mb-6">Thank you for being part of our special day</p>
-            <p className="text-sm opacity-75">
+            <p className="text-sm opacity-75 mb-4">
               &copy; {new Date().getFullYear()} • Designed with love
             </p>
+            <a
+              href="https://cryppy.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm opacity-75 hover:opacity-100 transition-opacity underline"
+            >
+              cryppy.xyz
+            </a>
           </div>
         </footer>
       </div>
