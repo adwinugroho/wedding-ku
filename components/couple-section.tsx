@@ -43,12 +43,11 @@ export default function CoupleSection() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb]">
+            <div className="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb] shrink-0">
               <Image
-                src="/icon-zahra.png?height=256&width=256"
+                src="/icon-zahra.png"
                 alt="Zahra"
-                fill
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
             <h3 className="font-serif text-xl mb-2 text-[#9e7f66]">
@@ -67,12 +66,11 @@ export default function CoupleSection() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="relative w-64 h-64 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb]">
+            <div className="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full border-4 border-[#d3c5bb] shrink-0">
               <Image
-                src="/icon-adwin.png?height=256&width=256"
+                src="/icon-adwin.png"
                 alt="Adwin"
-                fill
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
             <h3 className="font-serif text-xl mb-2 text-[#9e7f66]">

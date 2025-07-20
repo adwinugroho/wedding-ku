@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function HotelsNearbySection() {
   return (
-    <section className="py-20 px-6 relative min-h-[600px]">
+    <section className="py-20 px-6 relative min-h-[800px]">
       <div className="absolute inset-0 z-0">
         <Image
           src="/section-background.png"

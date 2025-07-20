@@ -24,7 +24,7 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="py-20 px-6 relative">
+    <section className="py-20 px-6 relative min-h-[800px]">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{ backgroundImage: "url('/section-background-2.png')" }}
@@ -45,24 +45,24 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {images.map((src, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="aspect-square relative overflow-hidden rounded-lg cursor-pointer group"
+              className="relative h-[400px] overflow-hidden rounded-xl cursor-pointer group"
               onClick={() => setSelectedImage(index)}
             >
               <Image
                 src={src || "/placeholder.svg"}
                 alt={`Gallery image ${index + 1}`}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>

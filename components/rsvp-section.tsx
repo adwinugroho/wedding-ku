@@ -67,7 +67,7 @@ export default function RSVPSection() {
   };
 
   return (
-    <section className="py-20 px-6 relative min-h-[600px]">
+    <section className="py-20 px-6 relative min-h-[800px]">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{ backgroundImage: "url('/section-background.png')" }}

@@ -36,7 +36,6 @@ export default function GiftRecommendationSection() {
       try {
         const response = await fetch("/api/gifts");
         const data = await response.json();
-
         if (data.status && data.data) {
           setGiftItems(data.data);
         } else {
@@ -54,13 +53,11 @@ export default function GiftRecommendationSection() {
 
   const handleBookItem = async (itemId: number) => {
     setUpdatingItem(itemId);
-
     try {
       const currentItem = giftItems.find((item) => item.id === itemId);
       if (!currentItem) return;
 
       const newBookedStatus = !currentItem.is_booked;
-
       const response = await fetch("/api/gifts", {
         method: "PUT",
         headers: {
@@ -73,7 +70,6 @@ export default function GiftRecommendationSection() {
       });
 
       const data = await response.json();
-
       if (data.status) {
         setGiftItems((prev) =>
           prev.map((item) =>
@@ -180,110 +176,118 @@ export default function GiftRecommendationSection() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {giftItems.map((item) => (
-                <CarouselItem
-                  key={item.id}
-                  className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
-                >
-                  <Card className="bg-white/95 backdrop-blur-md shadow-lg overflow-hidden">
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={item.image_url}
-                        alt={item.name}
-                        fill
-                        className="object-cover transition-transform duration-300 hover:scale-105"
-                      />
-                      {item.is_booked && (
-                        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                          <div className="bg-white rounded-full p-2">
-                            <Heart className="h-6 w-6 text-red-500 fill-current" />
+          {/* Container with proper padding for carousel controls */}
+          <div className="px-12 md:px-16">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {giftItems.map((item) => (
+                  <CarouselItem
+                    key={item.id}
+                    className="pl-2 md:pl-4 basis-[90%] sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                  >
+                    <Card className="bg-white/95 backdrop-blur-md shadow-lg overflow-hidden">
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={item.image_url || "/placeholder.svg"}
+                          alt={item.name}
+                          fill
+                          className="object-cover transition-transform duration-300 hover:scale-105"
+                        />
+                        {item.is_booked && (
+                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <div className="bg-white rounded-full p-2">
+                              <Heart className="h-6 w-6 text-red-500 fill-current" />
+                            </div>
                           </div>
+                        )}
+                        <div className="absolute top-2 right-2">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleBookItem(item.id)}
+                            disabled={updatingItem === item.id}
+                            className={`rounded-full p-1 ${
+                              item.is_booked
+                                ? "bg-red-500 text-white hover:bg-red-600"
+                                : "bg-white/80 text-gray-600 hover:bg-white"
+                            }`}
+                          >
+                            {updatingItem === item.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                              <Heart
+                                className={`h-4 w-4 ${
+                                  item.is_booked ? "fill-current" : ""
+                                }`}
+                              />
+                            )}
+                          </Button>
                         </div>
-                      )}
-                      <div className="absolute top-2 right-2">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => handleBookItem(item.id)}
-                          disabled={updatingItem === item.id}
-                          className={`rounded-full p-1 ${
-                            item.is_booked
-                              ? "bg-red-500 text-white hover:bg-red-600"
-                              : "bg-white/80 text-gray-600 hover:bg-white"
-                          }`}
-                        >
-                          {updatingItem === item.id ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : (
-                            <Heart
-                              className={`h-4 w-4 ${
-                                item.is_booked ? "fill-current" : ""
-                              }`}
-                            />
-                          )}
-                        </Button>
                       </div>
-                    </div>
-                    <CardContent className="p-4">
-                      <div className="mb-2">
-                        <span className="text-xs bg-[#9e7f66] text-white px-2 py-1 rounded-full">
-                          {item.category}
-                        </span>
-                      </div>
-                      <h3 className="font-semibold text-lg text-[#9e7f66] mb-2">
-                        {item.name}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-                        {item.description}
-                      </p>
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="font-bold text-lg text-[#9e7f66]">
-                          {item.price}
-                        </span>
-                      </div>
-                      <div className="flex gap-2">
-                        <Button
-                          onClick={() => handleGetGift(item.store_link)}
-                          className="flex-1 bg-[#9e7f66] hover:bg-[#8a6d57] text-white"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Get This Gift
-                        </Button>
-                        <Button
-                          onClick={() => handleBookItem(item.id)}
-                          disabled={updatingItem === item.id}
-                          variant="outline"
-                          className={`${
-                            item.is_booked
-                              ? "border-red-500 text-red-500 hover:bg-red-50"
-                              : "border-[#9e7f66] text-[#9e7f66] hover:bg-[#9e7f66] hover:text-white"
-                          }`}
-                        >
-                          {updatingItem === item.id ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : item.is_booked ? (
-                            "Booked"
-                          ) : (
-                            "Book"
-                          )}
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="bg-white/80 hover:bg-white" />
-            <CarouselNext className="bg-white/80 hover:bg-white" />
-          </Carousel>
+                      <CardContent className="p-4">
+                        <div className="mb-2">
+                          <span className="text-xs bg-[#9e7f66] text-white px-2 py-1 rounded-full">
+                            {item.category}
+                          </span>
+                        </div>
+                        <h3 className="font-semibold text-lg text-[#9e7f66] mb-2">
+                          {item.name}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                          {item.description}
+                        </p>
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="font-bold text-lg text-[#9e7f66]">
+                            {item.price}
+                          </span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            onClick={() => handleGetGift(item.store_link)}
+                            disabled={
+                              updatingItem === item.id || item.is_booked
+                            }
+                            className="flex-1 bg-[#9e7f66] hover:bg-[#8a6d57] text-white text-sm px-3 py-2"
+                          >
+                            <ExternalLink className="h-4 w-4 mr-1 flex-shrink-0" />
+                            <span className="truncate">Get This Gift</span>
+                          </Button>
+                          <Button
+                            onClick={() => handleBookItem(item.id)}
+                            disabled={updatingItem === item.id}
+                            variant="outline"
+                            className={`flex-shrink-0 text-sm px-3 py-2 ${
+                              item.is_booked
+                                ? "border-red-500 text-red-500 hover:bg-red-50"
+                                : "border-[#9e7f66] text-[#9e7f66] hover:bg-[#9e7f66] hover:text-white"
+                            }`}
+                          >
+                            {updatingItem === item.id ? (
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : item.is_booked ? (
+                              "Booked"
+                            ) : (
+                              "Book"
+                            )}
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              {/* Properly positioned carousel controls */}
+              <CarouselPrevious className="bg-white/90 hover:bg-white shadow-lg border-2 border-[#9e7f66]/20 text-[#9e7f66] hover:text-[#8a6d57] -left-6 md:-left-8" />
+              <CarouselNext className="bg-white/90 hover:bg-white shadow-lg border-2 border-[#9e7f66]/20 text-[#9e7f66] hover:text-[#8a6d57] -right-6 md:-right-8" />
+            </Carousel>
+          </div>
         </motion.div>
 
         <motion.div

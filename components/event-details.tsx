@@ -29,7 +29,7 @@ export default function EventDetails() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-[#f0e9e4] relative">
+    <section className="py-20 px-6 bg-[#f0e9e4] relative min-h-[800px]">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{ backgroundImage: "url('/section-background.png')" }}
