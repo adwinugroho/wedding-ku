@@ -176,7 +176,6 @@ export default function GiftRecommendationSection() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          {/* Container with proper padding for carousel controls */}
           <div className="px-12 md:px-16">
             <Carousel
               opts={{
@@ -189,15 +188,16 @@ export default function GiftRecommendationSection() {
                 {giftItems.map((item) => (
                   <CarouselItem
                     key={item.id}
-                    className="pl-2 md:pl-4 basis-[90%] sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                    className="basis-full md:basis-1/2 xl:basis-1/2 px-2 flex"
                   >
-                    <Card className="bg-white/95 backdrop-blur-md shadow-lg overflow-hidden">
-                      <div className="relative h-48 overflow-hidden">
+                    <Card className="bg-white/95 backdrop-blur-md shadow-lg overflow-hidden flex flex-col h-full">
+                      <div className="relative w-full aspect-[4/3]">
                         <Image
                           src={item.image_url || "/placeholder.svg"}
                           alt={item.name}
                           fill
                           className="object-cover transition-transform duration-300 hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                         />
                         {item.is_booked && (
                           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
@@ -230,30 +230,30 @@ export default function GiftRecommendationSection() {
                           </Button>
                         </div>
                       </div>
-                      <CardContent className="p-4">
+                      <CardContent className="flex flex-col flex-1 p-4">
                         <div className="mb-2">
                           <span className="text-xs bg-[#9e7f66] text-white px-2 py-1 rounded-full">
                             {item.category}
                           </span>
                         </div>
-                        <h3 className="font-semibold text-lg text-[#9e7f66] mb-2">
+                        <h3 className="font-semibold text-lg md:text-xl text-[#9e7f66] mb-2">
                           {item.name}
                         </h3>
-                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                        <p className="text-sm md:text-base text-gray-600 mb-3 line-clamp-2">
                           {item.description}
                         </p>
                         <div className="flex items-center justify-between mb-3">
-                          <span className="font-bold text-lg text-[#9e7f66]">
+                          <span className="font-bold text-lg md:text-xl text-[#9e7f66]">
                             {item.price}
                           </span>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2 mt-auto">
                           <Button
                             onClick={() => handleGetGift(item.store_link)}
                             disabled={
                               updatingItem === item.id || item.is_booked
                             }
-                            className="flex-1 bg-[#9e7f66] hover:bg-[#8a6d57] text-white text-sm px-3 py-2"
+                            className="flex-1 bg-[#9e7f66] hover:bg-[#8a6d57] text-white text-sm md:text-base px-3 py-2"
                           >
                             <ExternalLink className="h-4 w-4 mr-1 flex-shrink-0" />
                             <span className="truncate">Get This Gift</span>
@@ -262,7 +262,7 @@ export default function GiftRecommendationSection() {
                             onClick={() => handleBookItem(item.id)}
                             disabled={updatingItem === item.id}
                             variant="outline"
-                            className={`flex-shrink-0 text-sm px-3 py-2 ${
+                            className={`flex-shrink-0 text-sm md:text-base px-3 py-2 ${
                               item.is_booked
                                 ? "border-red-500 text-red-500 hover:bg-red-50"
                                 : "border-[#9e7f66] text-[#9e7f66] hover:bg-[#9e7f66] hover:text-white"
@@ -282,8 +282,6 @@ export default function GiftRecommendationSection() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-
-              {/* Properly positioned carousel controls */}
               <CarouselPrevious className="bg-white/90 hover:bg-white shadow-lg border-2 border-[#9e7f66]/20 text-[#9e7f66] hover:text-[#8a6d57] -left-6 md:-left-8" />
               <CarouselNext className="bg-white/90 hover:bg-white shadow-lg border-2 border-[#9e7f66]/20 text-[#9e7f66] hover:text-[#8a6d57] -right-6 md:-right-8" />
             </Carousel>
@@ -313,15 +311,20 @@ export default function GiftRecommendationSection() {
                   <div className="w-8 h-8 bg-[#9e7f66] text-white rounded-full flex items-center justify-center mx-auto mb-2">
                     2
                   </div>
-                  <p>Mark items as booked to avoid duplicates</p>
+                  <p>Click "Get This Gift" to purchase online</p>
                 </div>
                 <div>
                   <div className="w-8 h-8 bg-[#9e7f66] text-white rounded-full flex items-center justify-center mx-auto mb-2">
                     3
                   </div>
-                  <p>Click "Get This Gift" to purchase online</p>
+                  <p>Mark items as booked (click "Book") to avoid duplicates</p>
                 </div>
               </div>
+              <p className="mt-4 text-xs italic text-gray-500 text-center">
+                Accidentally clicked <span className="font-semibold">Book</span>
+                ? Just click <span className="font-semibold">Booked</span> again
+                to unmark the item.
+              </p>
             </CardContent>
           </Card>
         </motion.div>
